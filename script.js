@@ -14,6 +14,7 @@ function generateFunctionCall(functionName, functionParameters) {
 
 functionCallForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    debugger
-    result.textContent = generateFunctionCall(functionCallNameInput.value, functionCallParametersInput.value)
+    const result = generateFunctionCall(functionCallNameInput.value, functionCallParametersInput.value);
+    result.textContent = result;
+    navigator.clipboard.writeText(result);
 })
