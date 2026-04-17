@@ -1,5 +1,5 @@
 const functionCallForm = document.getElementById('function-call-form');
-const result = document.getElementById('result');
+const resultEl = document.getElementById('result');
 
 const functionCallNameInput = document.getElementById('function-call-name-input');
 const functionCallParametersInput = document.getElementById('function-call-parameters-input');
@@ -15,6 +15,6 @@ function generateFunctionCall(functionName, functionParameters) {
 functionCallForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const result = generateFunctionCall(functionCallNameInput.value, functionCallParametersInput.value);
-    result.textContent = result;
+    resultEl.textContent += result + '\n';
     navigator.clipboard.writeText(result);
 })
