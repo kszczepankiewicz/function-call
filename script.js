@@ -9,12 +9,15 @@ function generateFunctionCall(functionName, functionParameters) {
         alert('Empty name');
         return '';
     }
-    return `//${functionName}(${functionParameters})`;
+    return `${functionName}(${functionParameters}) \n`;
 }
 
 functionCallForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const result = generateFunctionCall(functionCallNameInput.value, functionCallParametersInput.value);
-    resultEl.textContent += result + '\n';
-    navigator.clipboard.writeText(result);
-})
+    resultEl.textContent += result;
+    navigator.clipboard.writeText('//' + result);
+    if (confirm('Open search?')) window.location.href = `https://www.google.com/search?q=${encodeURIComponent(result)}`;
+});
+
+//addDate() 
